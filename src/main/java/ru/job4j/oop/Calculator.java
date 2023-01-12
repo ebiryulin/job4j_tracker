@@ -32,11 +32,9 @@ public class Calculator {
         System.out.println(rsl);
         int rslMinus = Calculator.minus(5);
         System.out.println(rslMinus);
-        Calculator calculatorDivide = new Calculator();
-        int rslDivide = calculatorDivide.divide(10);
+        int rslDivide = calculator.divide(10);
         System.out.println(rslDivide);
-        Calculator calculatorSumAll = new Calculator();
-        int rslSumAll = calculatorSumAll.sumAllOperation(5);
+        int rslSumAll = calculator.sumAllOperation(5);
         System.out.println(rslSumAll);
     }
 }
