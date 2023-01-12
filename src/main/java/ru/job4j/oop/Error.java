@@ -6,12 +6,6 @@ public class Error {
     private int status;
     private String message;
 
-    public void printInfo() {
-        System.out.println("Наличие ошибки: " + active);
-        System.out.println("Номер ошибки: " + status);
-        System.out.println("Содержание ошибки: " + message);
-    }
-
     public Error(boolean active, int status, String message) {
         this.active = active;
         this.status = status;
@@ -19,6 +13,12 @@ public class Error {
     }
 
     public Error() {
+    }
+
+    public void printInfo() {
+        System.out.println("Наличие ошибки: " + active);
+        System.out.println("Номер ошибки: " + status);
+        System.out.println("Содержание ошибки: " + message);
     }
 
     public static void main(String[] args) {
