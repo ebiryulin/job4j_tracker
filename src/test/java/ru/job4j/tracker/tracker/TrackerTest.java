@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import ru.job4j.tracker.Tracker;
 import ru.job4j.tracker.Item;
 
-
 public class TrackerTest {
     @Test
     public void whenTestFindById() {
