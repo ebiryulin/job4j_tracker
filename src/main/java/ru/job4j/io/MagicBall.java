@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class MagicBall {
-    @SuppressWarnings("checkstyle:MissingSwitchDefault")
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Задайте вопрос");
