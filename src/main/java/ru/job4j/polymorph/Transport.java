@@ -6,7 +6,5 @@ public interface Transport {
 
     void passengers(int number);
 
-    default int refill(int quantity, int cost) {
-        return cost * quantity;
-    }
+    int refill(int quantity, int cost);
 }

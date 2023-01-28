@@ -9,13 +9,13 @@ public class Bus implements Transport {
 
     @Override
     public void passengers(int number) {
-        number = 25;
+        System.out.println(number);
     }
 
     @Override
     public int refill(int quantity, int cost) {
         quantity = 100;
         cost = 53;
-        return Transport.super.refill(quantity, cost);
+        return quantity * cost;
     }
 }
