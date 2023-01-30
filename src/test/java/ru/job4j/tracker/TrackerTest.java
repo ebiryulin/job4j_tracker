@@ -1,11 +1,7 @@
 package ru.job4j.tracker;
 
-import org.assertj.core.api.Assertions;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 
 public class TrackerTest {
     @Test
@@ -14,7 +10,7 @@ public class TrackerTest {
         Item bug = new Item("Bug");
         Item item = tracker.add(bug);
         Item result = tracker.findById(item.getId());
-        Assertions.assertThat(result.getName()).isEqualTo(item.getName());
+        assertThat(result.getName()).isEqualTo(item.getName());
     }
 
     @Test
@@ -25,7 +21,7 @@ public class TrackerTest {
         tracker.add(first);
         tracker.add(second);
         Item result = tracker.findAll()[0];
-        Assertions.assertThat(result.getName()).isEqualTo(first.getName());
+        assertThat(result.getName()).isEqualTo(first.getName());
     }
 
     @Test
@@ -39,7 +35,7 @@ public class TrackerTest {
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
         Item[] result = tracker.findByName(first.getName());
-        Assertions.assertThat(result.length).isEqualTo(3);
+        assertThat(result.length).isEqualTo(3);
     }
 
     @Test
@@ -53,7 +49,7 @@ public class TrackerTest {
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
         Item[] result = tracker.findByName(second.getName());
-        Assertions.assertThat(result[1].getName()).isEqualTo(second.getName());
+        assertThat(result[1].getName()).isEqualTo(second.getName());
     }
 
     @Test
@@ -64,7 +60,7 @@ public class TrackerTest {
         int id = item.getId();
         Item updateItem = new Item("Bug with description");
         tracker.replace(id, updateItem);
-        Assertions.assertThat(tracker.findById(id).getName()).isEqualTo("Bug with description");
+        assertThat(tracker.findById(id).getName()).isEqualTo("Bug with description");
     }
 
     @Test
@@ -74,8 +70,8 @@ public class TrackerTest {
         tracker.add(item);
         Item updateItem = new Item("Bug with description");
         boolean result = tracker.replace(1000, updateItem);
-        Assertions.assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
-        Assertions.assertThat(result).isFalse();
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -85,7 +81,7 @@ public class TrackerTest {
         tracker.add(item);
         int id = item.getId();
         tracker.delete(id);
-        Assertions.assertThat(tracker.findById(id)).isNull();
+        assertThat(tracker.findById(id)).isNull();
     }
 
     @Test
@@ -94,8 +90,8 @@ public class TrackerTest {
         Item item = new Item("Bug");
         tracker.add(item);
         boolean result = tracker.delete(1000);
-        Assertions.assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
-        Assertions.assertThat(result).isFalse();
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -105,7 +101,7 @@ public class TrackerTest {
         item.setName("test1");
         tracker.add(item);
         Item result = tracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        assertThat(result.getName()).isEqualTo("test1");
     }
 
     @Test
