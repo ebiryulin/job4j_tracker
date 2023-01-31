@@ -14,6 +14,8 @@ public class ExitProgram implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        out.println("=== Exit Program ===");
         return false;
     }
+
 }
