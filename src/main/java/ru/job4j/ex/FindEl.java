@@ -9,7 +9,7 @@ public class FindEl {
                 break;
             }
         }
-        if (rsl != -1) {
+        if (rsl == -1) {
             throw new ElementNotFoundException("Element " + key + " doesn't exist in array");
         }
         return rsl;
@@ -17,7 +17,7 @@ public class FindEl {
 
         public static void main(String[]args) {
             String[] value = {"one", "two", "three"};
-            String key = "three";
+            String key = "threee";
             try {
                 indexOf(value, key);
             } catch (ElementNotFoundException e) {
