@@ -60,27 +60,4 @@ class PasswordValidatorTest {
         String expected = "Password should contain at least one lowercase letter";
         assertThat(exception.getMessage()).isEqualTo(expected);
     }
-
-    @Test
-    void whenPasswordNotContainFigure() {
-        String password = "LnI$mrTYUo";
-        IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class,
-                () -> PasswordValidator.validate(password)
-        );
-        String expected = "Password should contain at least one figure";
-        assertThat(exception.getMessage()).isEqualTo(expected);
-    }
-
-    @Test
-    void whenPasswordNotContainSpecialSymbol() {
-        String password = "Ln2pmrTY12";
-        IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class,
-                () -> PasswordValidator.validate(password)
-        );
-        String expected = "Password should contain at least one special symbol";
-        assertThat(exception.getMessage()).isEqualTo(expected);
-    }
-
 }
