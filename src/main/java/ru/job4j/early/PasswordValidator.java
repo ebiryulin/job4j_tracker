@@ -1,5 +1,7 @@
 package ru.job4j.early;
 
+import java.util.Objects;
+
 public class PasswordValidator {
 
     public static String validate(String password) {
@@ -15,15 +17,18 @@ public class PasswordValidator {
             if (!Character.isUpperCase(x)) {
                 throw new IllegalArgumentException("Password should contain at least one uppercase letter");
             }
-            if (!Character.isLowerCase(x)) {
+            if (Character.isLowerCase(x)) {
                 throw new IllegalArgumentException("Password should contain at least one lowercase letter");
             }
-            if (!Character.isDigit(x)) {
+            if (Character.isDigit(x)) {
                 throw new IllegalArgumentException("Password should contain at least one figure");
             }
-            int code = password.codePointAt(i);
+            int code = password.codePointAt(x);
             if (code != 36 || code != 95) {
                 throw new IllegalArgumentException("Password should contain at least one special symbol");
+            }
+            if (!Objects.equals(password, password.toLowerCase())) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
             }
         }
         return password;
