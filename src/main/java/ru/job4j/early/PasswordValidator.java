@@ -8,7 +8,6 @@ public class PasswordValidator {
         boolean lowerCase = false;
         boolean digit = false;
         boolean specialSymbol = false;
-        boolean passwordContainSubstring = false;
 
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
@@ -46,13 +45,9 @@ public class PasswordValidator {
         }
         String[] notValidPassword = {"qwerty", "12345", "password", "admin", "user"};
         for (String s : notValidPassword) {
-            if (s.contains(password.toLowerCase())) {
-                passwordContainSubstring = true;
-                break;
+            if (password.toLowerCase().contains(s)) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
             }
-        }
-        if (!passwordContainSubstring) {
-            throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
         }
         return password;
     }
