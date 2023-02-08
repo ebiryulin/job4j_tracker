@@ -27,8 +27,7 @@ public class PasswordValidator {
             if (Character.isDigit(x)) {
                 digit = true;
             }
-            int code = password.codePointAt(x);
-            if (code == 36 || code == 95) {
+            if (Character.isLetterOrDigit(x)) {
                 specialSymbol = true;
             }
         }
@@ -44,10 +43,13 @@ public class PasswordValidator {
         if (!specialSymbol) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
-        if (password.toLowerCase().contains(password.toLowerCase())) {
-            throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+        String[] notValidPassword = {"qwerty", "12345", "password", "admin", "user"};
+        password.toLowerCase();
+        for (String s : notValidPassword) {
+            if (s.contains(password)) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+            }
         }
-
         return password;
     }
 }
