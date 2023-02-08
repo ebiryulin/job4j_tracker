@@ -47,6 +47,7 @@ class PasswordValidatorTest {
         String expected = "Password should be length [8, 32]";
         assertThat(exception.getMessage()).isEqualTo(expected);
     }
+
     @Test
     void whenPasswordNotContainUpperCaseLetter() {
         String password = "ln2$mrty12";
