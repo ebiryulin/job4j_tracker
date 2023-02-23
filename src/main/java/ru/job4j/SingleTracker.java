@@ -33,31 +33,15 @@ public class SingleTracker {
         return tracker.findAll();
     }
 
-    //public Item[] findAll() {
-        //return tracker.findAll();
-    //}
-
     public List<Item> findByName(String key) {
         return tracker.findByName(key);
     }
-
-    //public Item[] findByName(String key) {
-        //return tracker.findByName(key);
-    //}
 
     public boolean replace(int id, List<Item> item) {
         return tracker.replace(id, (Item) item);
     }
 
-    //public boolean replace(int id, Item item) {
-        //return tracker.replace(id, item);
-    //}
-
     public boolean delete(int id) {
         return tracker.delete(id);
     }
-
-    //public boolean delete(int id) {
-        //return tracker.delete(id);
-    //}
 }
